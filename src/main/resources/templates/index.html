@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+    <style type="text/css">
+
+        html, body {
+            height: 100%;
+            max-height: 100%;
+        }
+
+        .container {
+            height: 1000px;
+        }
+
+        .top-column {
+            position: relative;
+            display: inline-block;
+            max-height: 100%;
+            height: 50%;
+            width: 19.8%;
+        }
+
+        .bottom-column {
+            position: relative;
+            display: inline-block;
+            max-height: 100%;
+            height: 50%;
+            width: 24.8%;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="top-column" id="col-0">&nbsp;</div>
+    <div class="top-column" id="col-1">&nbsp;</div>
+    <div class="top-column" id="col-2">&nbsp;</div>
+    <div class="top-column" id="col-3">&nbsp;</div>
+    <div class="top-column" id="col-4">&nbsp;</div>
+
+    <br>
+
+    <div class="bottom-column" id="col-5">&nbsp;</div>
+    <div class="bottom-column" id="col-6">&nbsp;</div>
+    <div class="bottom-column" id="col-7">&nbsp;</div>
+    <div class="bottom-column" id="col-8">&nbsp;</div>
+
+</div>
+
+<script type="text/javascript">
+
+    let colorArray = [
+        "rgb(233, 30, 99)",
+        "rgb(63, 81, 181)",
+        "rgb(156, 39, 176)",
+        "rgb(0, 150, 136)",
+        "rgb(139, 195, 74)",
+        "rgb(33, 150, 243)",
+        "rgb(205, 220, 57)",
+        "rgb(255, 193, 7)",
+        "rgb(96, 125, 139)"
+    ];
+
+    window.onload = function () {
+
+        setInterval(function () {
+
+            let timeMillis = "" + new Date().getTime();
+            let k = timeMillis.length;
+
+            let colors = [];
+
+            for (let i in colorArray) {
+
+                let val1 = timeMillis[k - 2] + "" + timeMillis[k - 1];
+                let val2 = timeMillis[k - 2] + "" + (timeMillis[k - 1] + 1);
+
+                let colorIndex = getColor(val1, val2);
+                colors.push(colorArray[colorIndex]);
+            }
+
+            changeColor(colors);
+
+        }, 3000);
+    };
+
+    function changeColor(colors) {
+
+        for (let i in colors) {
+            console.log(colors[i]);
+            document.getElementById("col-" + i).style.backgroundColor = colors[i];
+        }
+    }
+
+    function getColor(val1, val2) {
+
+        let newVal = val1 * val2;
+
+        return ("" + newVal)[0];
+    }
+
+</script>
+
+</body>
+</html>
