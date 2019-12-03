@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
-
     <style type="text/css">
 
         html, body {
-            height: 99%;
-            max-height: 99%;
+            height: 99.2%;
+            max-height: 99.2%;
         }
 
         .container {
@@ -61,8 +60,8 @@
         "rgb(139, 195, 74)",
         "rgb(33, 150, 243)",
         "rgb(205, 220, 57)",
-        "rgb(255, 193, 7)",
-        "rgb(96, 125, 139)"
+        "#E64A19",
+        "rgb(255, 193, 7)"
     ];
 
     window.onload = function () {
@@ -74,8 +73,6 @@
             for (let i in colorArray) {
 
                 let random = Math.floor(Math.random() * 10);
-
-                console.log(random);
                 colors.push(colorArray[random]);
             }
 
